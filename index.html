@@ -9,7 +9,20 @@
     </head>
 
     <body>
-      
+      <button id="custom-launcher" onclick="toggleMessenger()">
+  Messenger
+</button>
+        <script type="text/javascript">
+  function toggleMessenger(){
+    Genesys("command", "Messenger.open", {},
+      function(o){},  // if resolved
+      function(o){    // if rejected
+        Genesys("command", "Messenger.close");
+      }
+    );
+  }
+</script>
+        
 <script type="text/javascript" charset="utf-8">
   (function (g, e, n, es, ys) {
     g['_genesysJs'] = e;
@@ -22,14 +35,18 @@
   })(window, 'Genesys', 'https://apps.mypurecloud.com/genesys-bootstrap/genesys.min.js', {
     environment: 'use1',
     deploymentId: '3a6ed6ec-b325-4df7-a5c8-c74e755566ea'
+  
+      Genesys("command", "Database.set", {
+  messaging: {
+    customAttributes: {
+      department: "sales",
+      property_type: "apartment",
+      device: "mobile"
+    }
+  }
+});
   });
-</script>
 
-      <script type="text/javascript" charset="utf-8">
-  Genesys("subscribe", "Launcher.ready" , function(o){
-    console.log("The queue works!");
-  });
-</script>
       
     </body>
 
