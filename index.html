@@ -8,20 +8,7 @@
 
     </head>
 
-    <body>
-      <button id="custom-launcher" onclick="toggleMessenger()">
-  Messenger
-</button>
-        <script type="text/javascript">
-  function toggleMessenger(){
-    Genesys("command", "Messenger.open", {},
-      function(o){},  // if resolved
-      function(o){    // if rejected
-        Genesys("command", "Messenger.close");
-      }
-    );
-  }
-</script>
+
         
 <script type="text/javascript" charset="utf-8">
   (function (g, e, n, es, ys) {
@@ -46,7 +33,20 @@
   }
 });
   });
-
+    <body>
+      <button id="custom-launcher" onclick="toggleMessenger()">
+  Messenger
+</button>
+        <script type="text/javascript">
+  function toggleMessenger(){
+    Genesys("command", "Messenger.open", {},
+      function(o){},  // if resolved
+      function(o){    // if rejected
+        Genesys("command", "Messenger.close");
+      }
+    );
+  }
+</script>
       
     </body>
 
